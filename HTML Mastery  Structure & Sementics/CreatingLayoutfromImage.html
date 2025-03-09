@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          
+        body{
+            margin:0;
+            padding: 0;
+            font-family:Arial, Helvetica, sans-serif
+        }
+        section{
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+        }
+        table,td,th{
+            border: 1px solid black; border-collapse: collapse;
+            padding: 10px;
+
+        }
+        input{
+            border:none;
+            border-bottom: 2px solid black;
+        }
+        ul{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap:5px;
+            padding:0px
+            
+        }
+        .my_portfolio{
+            margin-top: 20px;
+            padding:10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        nav{
+            height: 150px;
+            background-image: linear-gradient(blue, cyan);
+            color: white;
+            margin: 0px;
+            padding: 20px 0px;
+        }
+        li{
+            list-style-type:none;
+            font-weight: bold;
+        
+        }
+       
+        footer{
+            background-color: blue;
+            color:white;
+            padding: 0px 0px 0px 0px;
+            margin-bottom: -15px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1 class="my_portfolio">My Portfolio</h1>
+            <ul class="list_nav">
+                <li >Home</li>
+                <li>contact Us</li>
+                <li>About Us</li>
+                <li>Signin</li>
+                <li>SignUp</li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <article>
+            <h1>Welcome to My Portfolio</h1>
+            <p>
+                The Portfolio Showcase my Projects and Providesinformationabout my backgroundand contact details; 
+            </p>
+        </article>
+
+        <article>
+            <h1>About</h1>
+            <p>
+                Hello I'm a web developer passionate about buildingdynamicand responsive websites. I enjoy creating user-<br>
+                friendly interfacesand workingonchallenging projects
+            </p>
+        </article>
+
+        <article>
+           
+            <h1>Projects</h1>
+           <table style="border: 1px solid black; border-collapse: collapse;">
+            <tr >
+                <th style="background-color: blue; color: aliceblue; ">
+                    Project Name
+                </th>
+                <th style="background-color: blue; color: aliceblue;">
+                    Description
+                </th>
+                <th style="background-color: blue; color: aliceblue;">
+                     Year
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Project Alpha
+                </td>
+                <td>
+                    A web-based tool for tracking project Progress and managing tasks
+                </td>
+                <td>
+                    2023
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Project Site
+                </td>
+                <td>
+                    A Personal websites showcasing my work and skills asa a web developer
+                </td>
+                <td>
+                    2024
+                </td>
+            </tr>
+           </table>
+        
+        </article>
+
+    </section>
+
+    <section>
+        <div>
+            <div><h1>Contact Form</h1></div>
+            <form action="submit" method="POST"> 
+                <label for ="username">Username:</label>
+                <br>
+
+                <input type="text" id = "username" name="username"></input><br><br>
+    
+                <label for ="password">Password</label>
+                <br>
+                <input type="password" id = "password" name="password"></input><br><br>
+    
+               
+    
+                <label for="bio">Short BIO</label>
+                <br>
+                <textarea id ="bio" name ="bio" rows ="4" cols="50"></textarea><br><br>
+    
+                <button type ="submit" value="submit">submit </button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+       
+        <p>&copy copy right reserved by jatin garg</p>
+    </footer>
+</body>
+</html>
