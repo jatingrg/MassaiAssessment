@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li:first-child{
+            font-weight: bolder;
+        }
+        li:first-child+li{
+            background-color: wheat;
+        }
+        li:nth-child(3)~li{
+            font-style: italic;
+        }
+        li:hover{
+            color:red;
+            background-color: yellowgreen;
+            
+        }
+    </style>
+</head>
+<body>
+    <ol>
+        <li>coffe</li>
+        <li>Tea</li>
+        <li>Computer</li>
+        <li>Mouse</li>
+        <li>Keyboard</li>
+    </ol>
+</body>
+</html>
