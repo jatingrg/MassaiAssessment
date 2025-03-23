@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Display Properties</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .block-element {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: lightblue;
+            border: 2px solid blue;
+            margin-bottom: 10px;
+        }
+        .inline-element {
+            display: inline;
+            background-color: lightgreen;
+            padding: 5px;
+            border: 1px solid green;
+        }
+        .inline-block-element {
+            display: inline-block;
+            width: 150px;
+            height: 50px;
+            background-color: lightcoral;
+            border: 2px solid red;
+            text-align: center;
+            line-height: 50px;
+            margin: 10px;
+        }
+        .hidden-element {
+            display: none;
+            background-color: lightgray;
+            padding: 10px;
+            border: 2px solid gray;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>CSS Display Property Demonstration</h2>
+    
+    <div class="block-element">I am a block element</div>
+    
+    <span class="inline-element">I am an inline element</span>
+    
+    <div class="inline-block-element">I am an inline-block element</div>
+    
+    <div id="hidden-element" class="hidden-element">I was hidden, now visible!</div>
+    
+    <button onclick="toggleVisibility()">Toggle Hidden Element</button>
+    
+    <script>
+        function toggleVisibility() {
+            let element = document.getElementById("hidden-element");
+            if (element.style.display === "none") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

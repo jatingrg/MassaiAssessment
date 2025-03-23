@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin: 50px;
+        }
+
+        .box {
+            width: 200px;
+            padding: 20px;
+            border: 5px solid black;
+            margin: 20px;
+        }
+
+        .box1 {
+            background-color: lightblue;
+            box-sizing: content-box; 
+            border-style: solid;
+        }
+
+        .box2 {
+            background-color: lightgreen;
+            box-sizing: border-box;
+            border-style: dashed;
+            padding: 30px;
+        }
+
+        .box3 {
+            background-color: lightcoral;
+            box-sizing: content-box;
+            border-style: dotted;
+            padding: 10px;
+            margin: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1">Box 1</div>
+    <div class="box box2">Box 2</div>
+    <div class="box box3">Box 3</div>
+</body>
+</html>

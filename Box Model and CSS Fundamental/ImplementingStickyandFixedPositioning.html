@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Header & Fixed Footer</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 20px;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        
+        .content {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        
+        .content p {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">Sticky Header</div>
+    
+    <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Vivamus luctus urna sed urna ultricies ac tempor dui sagittis.</p>
+        <p>In condimentum facilisis porta.</p>
+        <p>Sed nec diam eu diam mattis viverra.</p>
+        <p>Etiam fermentum nisi eget erat faucibus, a molestie turpis sollicitudin.</p>
+        <p>Nulla facilisi.</p>
+        <p>Fusce convallis metus id felis luctus adipiscing.</p>
+        <p>Aliquam erat volutpat.</p>
+        <p>Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla.</p>
+        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+    </div>
+    
+    <div class="footer">Fixed Footer</div>
+
+</body>
+</html>
