@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paragraph Manager</title>
+</head>
+<body>
+  <h2>Paragraph Manager</h2>
+  <button id="addParagraphButton">Add Paragraph</button>
+  <button id="removeParagraphButton">Remove Last Paragraph</button>
+  <div id="paragraphContainer"></div>
+
+  <div id="container">
+    <ul id="list">
+      <li id="item1">Item 1</li>
+      <li id="item2">Item 2</li>
+      <li id="item3">Item 3</li>
+    </ul>
+  </div>
+
+  <script>
+    const addParagraphButton = document.getElementById('addParagraphButton');
+    const removeParagraphButton = document.getElementById('removeParagraphButton');
+    const paragraphContainer = document.getElementById('paragraphContainer');
+
+    addParagraphButton.addEventListener('click', () => {
+      const p = document.createElement('p');
+      p.textContent = "This is a new paragraph.";
+      paragraphContainer.appendChild(p);
+    });
+
+    removeParagraphButton.addEventListener('click', () => {
+      const paragraphs = paragraphContainer.getElementsByTagName('p');
+      if (paragraphs.length > 0) {
+        paragraphContainer.removeChild(paragraphs[paragraphs.length - 1]);
+      }
+    });
+
+    const item2 = document.getElementById('item2');
+    item2.addEventListener('click', () => {
+      alert(item2.parentNode.textContent.trim());
+      
+      const prevSibling = item2.previousElementSibling;
+      const nextSibling = item2.nextElementSibling;
+      
+      if (prevSibling) console.log("Previous Sibling:", prevSibling.textContent);
+      if (nextSibling) console.log("Next Sibling:", nextSibling.textContent);
+    });
+  </script>
+</body>
+</html>

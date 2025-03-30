@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Propagation Demo</title>
+  <style>
+    .box {
+      padding: 20px;
+      margin: 10px;
+      border: 2px solid black;
+    }
+  </style>
+</head>
+<body>
+  <h2>Event Propagation Demo</h2>
+  
+  <div id="outer" class="box" style="background-color: lightcoral;">
+    Outer Div
+    <button id="outerButton">Outer Button</button>
+    <div id="middle" class="box" style="background-color: lightblue;">
+      Middle Div
+      <button id="middleButton">Middle Button</button>
+      <div id="inner" class="box" style="background-color: lightgreen;">
+        Inner Div
+        <button id="innerButton">Inner Button</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function eventHandler(event) {
+      alert(`${event.currentTarget.id} clicked`);
+    }
+    
+    function stopPropagation(event) {
+      alert("Inner Button clicked - Stopping propagation");
+      event.stopPropagation();
+    }
+
+    document.getElementById('outer').addEventListener('click', eventHandler, true); 
+    document.getElementById('middle').addEventListener('click', eventHandler, true);
+    document.getElementById('inner').addEventListener('click', eventHandler, true);
+
+    document.getElementById('outer').addEventListener('click', eventHandler, false);
+    document.getElementById('middle').addEventListener('click', eventHandler, false);
+    document.getElementById('inner').addEventListener('click', eventHandler, false);
+
+    document.getElementById('outerButton').addEventListener('click', eventHandler);
+    document.getElementById('middleButton').addEventListener('click', eventHandler);
+    document.getElementById('innerButton').addEventListener('click', stopPropagation);
+  </script>
+</body>
+</html>
