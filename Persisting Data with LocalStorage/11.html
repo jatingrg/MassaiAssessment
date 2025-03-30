@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        textarea {
+            width: 80%;
+            height: 200px;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Simple Notes App</h2>
+    <textarea id="noteArea" placeholder="Enter your notes..."></textarea><br>
+    <button onclick="saveNote()">Save Note</button>
+    <button onclick="loadNote()">Load Notes</button>
+    <button onclick="clearNote()">Clear Notes</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", loadNote);
+
+        function saveNote() {
+            const note = document.getElementById("noteArea").value.trim();
+            if (note) {
+                localStorage.setItem("savedNote", note);
+                alert("Note saved successfully!");
+            } else {
+                alert("Cannot save an empty note!");
+            }
+        }
+
+        function loadNote() {
+            const savedNote = localStorage.getItem("savedNote");
+            if (savedNote) {
+                document.getElementById("noteArea").value = savedNote;
+            }
+        }
+
+        function clearNote() {
+            localStorage.removeItem("savedNote");
+            document.getElementById("noteArea").value = "";
+            alert("Notes cleared successfully!");
+        }
+    </script>
+</body>
+</html>

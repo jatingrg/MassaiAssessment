@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Todo List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enhanced Todo List</h2>
+    <input type="text" id="taskInput" placeholder="Add a new task...">
+    <button onclick="addTask()">Add Task</button>
+    <br>
+    <input type="text" id="searchInput" placeholder="Search tasks..." onkeyup="searchTasks()">
+    <ul id="taskList"></ul>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", loadTasks);
+
+        function generateId() {
+            return '_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        function addTask() {
+            const taskText = document.getElementById("taskInput").value.trim();
+            if (!taskText) {
+                alert("Task cannot be empty!");
+                return;
+            }
+            const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+            const newTask = { id: generateId(), text: taskText, completed: false };
+            tasks.push(newTask);
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            document.getElementById("taskInput").value = "";
+            renderTasks();
+        }
+
+        function toggleTask(id) {
+            let tasks = JSON.parse(localStorage.getItem("tasks"));
+            tasks = tasks.map(task => task.id === id ? { ...task, completed: !task.completed } : task);
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            renderTasks();
+        }
+
+        function deleteTask(id) {
+            let tasks = JSON.parse(localStorage.getItem("tasks"));
+            tasks = tasks.filter(task => task.id !== id);
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            renderTasks();
+        }
+
+        function renderTasks() {
+            const taskList = document.getElementById("taskList");
+            taskList.innerHTML = "";
+            const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+            tasks.forEach(task => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <span class="${task.completed ? 'completed' : ''}" onclick="toggleTask('${task.id}')">${task.text}</span>
+                    <button onclick="deleteTask('${task.id}')">Delete</button>
+                `;
+                taskList.appendChild(li);
+            });
+        }
+
+        function searchTasks() {
+            const searchValue = document.getElementById("searchInput").value.toLowerCase();
+            const tasks = document.querySelectorAll("#taskList li");
+            tasks.forEach(task => {
+                const taskText = task.querySelector("span").textContent.toLowerCase();
+                task.classList.toggle("hidden", !taskText.includes(searchValue));
+            });
+        }
+
+        function loadTasks() {
+            renderTasks();
+        }
+    </script>
+</body>
+</html>
