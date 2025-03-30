@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <style>
+        .container {
+            padding: 20px;
+            border: 1px solid black;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .bold-blue {
+            font-weight: bold;
+            color: blue;
+        }
+        .italic-red {
+            font-style: italic;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="main-heading">Hello World</h1>
+    <div class="container">
+        <ul id="item-list">
+            <li class="bold-blue">Item 1</li>
+            <li class="italic-red">Item 2</li>
+            <li class="bold-blue">Item 3</li>
+        </ul>
+        <button id="add-item">Add Item</button>
+    </div>
+    
+    <script>
+        document.getElementById("add-item").addEventListener("click", function() {
+            let ul = document.querySelector("#item-list");
+            let newItem = document.createElement("li");
+            let itemsCount = ul.getElementsByTagName("li").length + 1;
+            newItem.textContent = "New Item " + itemsCount;
+            
+            if (itemsCount % 2 === 1) {
+                newItem.classList.add("bold-blue");
+            } else {
+                newItem.classList.add("italic-red");
+            }
+            
+            ul.appendChild(newItem);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <style>
+    .completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <h2>To-Do List</h2>
+  <input type="text" id="taskInput" placeholder="Enter a task">
+  <button id="addTaskButton">Add Task</button>
+  <ul id="taskList"></ul>
+
+  <script>
+    const taskInput = document.getElementById('taskInput');
+    const addTaskButton = document.getElementById('addTaskButton');
+    const taskList = document.getElementById('taskList');
+
+    addTaskButton.addEventListener('click', () => {
+      const taskText = taskInput.value.trim();
+      if (taskText === '') {
+        alert('Please enter a task!');
+        return;
+      }
+
+      const li = document.createElement('li');
+      li.textContent = taskText;
+      
+      const completeButton = document.createElement('button');
+      completeButton.textContent = 'Complete';
+      completeButton.addEventListener('click', () => {
+        li.classList.toggle('completed');
+      });
+      
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.addEventListener('click', () => {
+        taskList.removeChild(li);
+      });
+      
+      li.appendChild(completeButton);
+      li.appendChild(deleteButton);
+      taskList.appendChild(li);
+      
+      taskInput.value = '';
+    });
+  </script>
+</body>
+</html>
