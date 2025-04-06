@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Firebase User Manager</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Firebase User Management</h1>
+
+  <form id="userForm">
+    <input type="text" id="name" placeholder="Name" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <button type="submit">Add User</button>
+  </form>
+
+  <div id="message"></div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody id="userTable"></tbody>
+  </table>
+
+  <div id="editSection" style="display: none;">
+    <h3>Edit User</h3>
+    <input type="text" id="editName" />
+    <input type="email" id="editEmail" />
+    <button id="saveEdit">Save</button>
+  </div>
+
+  <script src="3.js"></script>
+</body>
+</html>
