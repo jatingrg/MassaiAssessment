@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Novel List</title>
+  <style>
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ddd; padding: 8px; }
+    th { background-color: #f2f2f2; }
+    input, select { margin: 10px; padding: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Novels</h1>
+
+  <input type="text" id="searchInput" placeholder="Search by title or author">
+  <select id="yearFilter">
+    <option value="">All Years</option>
+    <option value="2020">2020+</option>
+    <option value="2010">2010+</option>
+    <option value="2000">2000+</option>
+  </select>
+  <select id="sortPrice">
+    <option value="">Sort by Price</option>
+    <option value="asc">Price: Low to High</option>
+    <option value="desc">Price: High to Low</option>
+  </select>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>Year</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody id="novelTable"></tbody>
+  </table>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  <script src="2.js"></script>
+</body>
+</html>
