@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+</head>
+<body>
+
+  <h2>Sign Up</h2>
+  <form id="signup-form">
+    <input type="email" id="email" placeholder="Email" required><br>
+    <input type="password" id="password" placeholder="Password" required><br>
+    <select id="role" required>
+      <option value="admin">Admin</option>
+      <option value="user">User</option>
+    </select><br>
+    <button type="submit">Sign Up</button>
+  </form>
+
+  <script src="register.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+
+<script>
+ const firebaseConfig = {
+  apiKey: "AIzaSyDSzOI4Ov0ZjDmWI4K7aKGDykShvmeo8tM",
+  authDomain: "fir-3-6914a.firebaseapp.com",
+  projectId: "fir-3-6914a",
+  storageBucket: "fir-3-6914a.firebasestorage.app",
+  messagingSenderId: "397652910641",
+  appId: "1:397652910641:web:50270272f64921693c2b10",
+  measurementId: "G-QCD7KP8T9W"
+};
+  const app = firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.database();
+</script>
+
+</body>
+</html>
