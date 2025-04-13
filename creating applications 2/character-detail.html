@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Character Detail</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Character Detail</h1>
+  </header>
+
+  <div id="character-detail" class="character-detail"></div>
+
+  <footer>
+    <div class="footer-clock" id="footer-clock"></div>
+  </footer>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const characterId = urlParams.get('id');
+
+    function fetchCharacterDetail(id) {
+      fetch(`https://rickandmortyapi.com/api/character/${id}`)
+        .then(response => response.json())
+        .then(data => {
+          displayCharacterDetail(data);
+        });
+    }
+
+    function displayCharacterDetail(character) {
+      const detailSection = document.getElementById('character-detail');
+      detailSection.innerHTML = `
+        <img src="${character.image}" alt="${character.name}">
+        <h1>${character.name}</h1>
+        <p><strong>Status:</strong> ${character.status}</p>
+        <p><strong>Species:</strong> ${character.species}</p>
+        <p><strong>Gender:</strong> ${character.gender}</p>
+        <p><strong>Type:</strong> ${character.type || 'N/A'}</p>
+        <p><strong>Origin:</strong> ${character.origin.name}</p>
+        <p><strong>Location:</strong> ${character.location.name}</p>
+        <p><strong>Episodes:</strong> ${character.episode.length} episodes</p>
+      `;
+    }
+
+    function initialize() {
+      fetchCharacterDetail(characterId);
+      setInterval(updateClock, 1000);
+    }
+
+    window.onload = initialize;
+  </script>
+</body>
+</html>
