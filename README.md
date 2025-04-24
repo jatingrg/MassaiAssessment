@@ -1,4 +1,4 @@
 # MassaiAssessment
 
 # Dependency directories
-node_modules/
+node_modules
